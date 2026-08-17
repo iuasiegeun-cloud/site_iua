@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FeatureCardsSection } from '@/components/FeatureCardsSection';
 import { HeroSection } from '@/components/HeroSection';
 import { LabsPage } from '@/components/LabsPage';
 import { LibraryPage } from '@/components/LibraryPage';
@@ -7,8 +8,7 @@ import { NewsPage } from '@/components/NewsPage';
 import { NewsSection } from '@/components/NewsSection';
 import { PartnersSection } from '@/components/PartnersSection';
 import { PortalHeader } from '@/components/PortalHeader';
-import { ProfileBar } from '@/components/ProfileBar';
-import { StatsBand } from '@/components/StatsBand';
+import { QuickAccessStrip } from '@/components/QuickAccessStrip';
 import { SiteFooter } from '@/components/SiteFooter';
 import { UfrPage } from '@/components/UfrPage';
 import { UniversityOverviewSection } from '@/components/UniversityOverviewSection';
@@ -36,17 +36,17 @@ function App() {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-slate-50 font-sans text-slate-950">
-      <PortalHeader activeView={currentView} onNavigate={handleNavigate} />
-      {currentView === 'home' && <ProfileBar onProfileSelect={setSelectedProfile} />}
+      <PortalHeader activeView={currentView} onNavigate={handleNavigate} onProfileSelect={setSelectedProfile} />
 
       <main>
         {currentView === 'home' && (
           <>
             <HeroSection />
+            <FeatureCardsSection />
+            <QuickAccessStrip />
             <NewsSection />
             <UniversityOverviewSection />
             <PartnersSection />
-            <StatsBand />
           </>
         )}
 

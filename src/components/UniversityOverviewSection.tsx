@@ -58,13 +58,40 @@ export function UniversityOverviewSection() {
               </p>
             </div>
 
+            {/* Chiffres clés, présentés en mini-cartes comme sur uphf.fr */}
+            <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              {[
+                ['11 000+', 'étudiants'],
+                ['5', 'campus'],
+                ['25+', 'formations'],
+                ['100+', 'enseignants-chercheurs'],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-5 text-center transition hover:border-sky-300 hover:bg-sky-50">
+                  <p className="text-2xl font-black text-slate-950 sm:text-3xl">{value}</p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Liste des campus, comme le bloc "5 campus" de uphf.fr */}
+            <div className="mt-8 border-t border-slate-200 pt-6">
+              <p className="mb-3 text-xs font-extrabold uppercase tracking-[0.15em] text-slate-500">Nos campus</p>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-sky-700">
+                {['Riviera-Bonoumin', 'Cocody', 'Yopougon', 'Marcory', 'II Plateaux'].map((campus) => (
+                  <a key={campus} href="#campus" className="underline decoration-sky-300 decoration-2 underline-offset-4 transition hover:text-sky-500">
+                    {campus}
+                  </a>
+                ))}
+              </div>
+            </div>
+
             {/* Seul le bouton "En savoir plus sur l'Université" reste ici */}
             <div className="mt-8">
               <button
                 onClick={() => setShowUnivModal(true)}
                 className="rounded-full bg-sky-600 px-8 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition hover:bg-sky-500 hover:shadow-xl active:scale-95"
               >
-                En savoir plus sur l'Université
+                En savoir plus sur l'IUA
               </button>
             </div>
           </div>
